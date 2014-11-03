@@ -601,7 +601,9 @@ CURC-komennolla asetetaan automaattinen raportointi päälle tai pois. Tällöin
 	\end{tabularx}
 	\label{table:atkomento_sysinfoex}
 \end{table}
-SYSINFOEX-komennolla saadan paljon hyödyllistä tietoa modeemin toiminnasta. 
+SYSINFOEX-komennolla saadan paljon hyödyllistä tietoa modeemin toiminnasta. Arvot srv\_status, srv\_domain kertovat millaiseen palveluun modeemi on kytkeytynyt. Roam\_status-arvo ilmaisee onko modeemi roaming-tilassa. Sim\_state kertoo mikäli SIM-kortti on lukittu tai epäkelpo paketti-, puheliikenteen osalta ja lock\_state joissain päätelaitteissa SIM-kortin lukitustilan. 
+
+Sysmode ja submode kertovat numeroin minkä tyyppisessä verkossa modeemi on kiinni ja tarkemmin mitä tekniikkaa käytetään. Sysmode\_name ja submode\_name ilmaisevat vastaavasti samat selkotekstinä. Näistä saadaan suoraan tieto, ollaanko GSM-, WCDMA- tai LTE-verkossa ja mitä tekniikkaa käytetään kullakin hetkellä. Kaikki mahdolliset muuttujien arvot on listattu liitteessä 1.
 \begin{table}[H]
 	\centering
 	\caption{ANQUERY-komento}
@@ -614,7 +616,7 @@ SYSINFOEX-komennolla saadan paljon hyödyllistä tietoa modeemin toiminnasta.
 	\end{tabularx}
 	\label{table:atkomento_anquery}
 \end{table}
-Selitä komennosta hyödynnettävä tieto
+ANQUERY-komentoa ei löytynyt dokumentaatioista, mutta muista lähteistä saatiin selville, että se sisältää kaikki kiinnostavat radiotien parametrit. Tämä varmistettiin katsomalla modeemin web-hallinnasta verkon vianmääritysparametrejä ja vertaamalla niitä komennon tulosteeseen. RSCP (Received Signal Code Power), Ec/Io ovat UMTS-verkon tunnusarvoja ja RSRP (Reference Symbol Received Power) ja RSRQ (Reference Symbol Received Quality) LTE:n arvoja. RSSI (Received Signal Strength Indicator) on yhteinen molemmilla tekniikoilla, kuitenkin hieman eri asiaa tarkoittaen. Antenna\_level-parametrin merkitystä ei tarkasti saatu selvitettyä, mutta se on todennäköisesti karkea signaalitason mittari. Mittauksissa sen havaittiin saavan arvoja välillä 0-4.
 \begin{table}[H]
 	\centering
 	\caption{CREG-komento}
@@ -627,7 +629,7 @@ Selitä komennosta hyödynnettävä tieto
 	\end{tabularx}
 	\label{table:atkomento_creg}
 \end{table}
-Selitä komennosta hyödynnettävä tieto
+CREG-komennolla voidaan seurata LAC(Location Area) ja CI (Cell Id) tunnisteita. Näillä voidaan varmistaa esimerkiksi ettei modeemi hypi solujen välillä tarpeettomasti aiheuttaen katkoksia ja hidastelua tiedonsiirrossa. Komento kertoo myös stat-parametrin kautta onko verkkoon rekisteröitymisprosessista.
 \begin{table}[H]
 	\centering
 	\caption{DSFLOWRPT-komento}
@@ -640,7 +642,7 @@ Selitä komennosta hyödynnettävä tieto
 	\end{tabularx}
 	\label{table:atkomento_dsflowrpt}
 \end{table}
-Selitä komennosta hyödynnettävä tieto
+Kun CURC-komennolla on otettu käyttöön raportointi, antaa modeemi tasaisin väliajoin liikennetietoa DSFLOWRPT-tulosteella. Tässä curr\_ds\_time kertoo nykyisen yhteyden pituuden sekuntteina. Tx\_rate- ja Rx\_rate-arvot kertovat hetkellisen lähetys- ja vastaanottonopeuden bitteinä sekunnissa ja curr\_tx\_flow- sekä curr\_rx\_flow yhteyden aikana siirretyn datan kokonaismäärän tavuina. Kaksi viimeistä arvoa ovat PDP-yhteyden vastaanotto- ja lähetysnopeudet bitteinä sekunnissa. Kaikki arvot ovat joko 8- tai 16-merkkisiä heksadesimaalilukuja. 
 
 AT+CLAC komennolla voidaan listata kaikki laitteen tukemat komennot, joiden joukosta löytyi nimien perusteella muitakin mielenkiintoisia komentoja, joita olisi ollut mielenkiintoista seurata. Dokumentaatioista ei kuitenkaan varmuudella löytynyt tietoa arvoista, jotka komennot tulostavat, joten näitä ei käytetty mittauksien tulkinnassa.
 
