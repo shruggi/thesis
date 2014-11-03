@@ -152,6 +152,7 @@ First name Last name, Title (for example: Principal Lecturer)
 \captiontitlefont{\small}
 %space after figure caption (and other float elements)
 \setlength{\belowcaptionskip}{-7pt}
+\DeclareGraphicsExtensions{.png,.PNG,.jpg}
 
 %TABLE
 \counterwithout{table}{chapter}
@@ -587,7 +588,7 @@ Dokumentteja selailemalla ja kokeilemalla komentoja saatiin selville, mitkä kom
 	\end{tabularx}
 	\label{table:atkomento_curc}
 \end{table}
-Selitä komennosta hyödynnettävä tieto
+CURC-komennolla asetetaan automaattinen raportointi päälle tai pois. Tällöin modeemi tulostaa automaattisesti meitä kiinnostavan \^{}DSFLOWRPT-komennon listauksen tietyin väliajoin.
 \begin{table}[H]
 	\centering
 	\caption{SYSINFOEX-komento}
@@ -600,7 +601,7 @@ Selitä komennosta hyödynnettävä tieto
 	\end{tabularx}
 	\label{table:atkomento_sysinfoex}
 \end{table}
-Selitä komennosta hyödynnettävä tieto
+SYSINFOEX-komennolla saadan paljon hyödyllistä tietoa modeemin toiminnasta. 
 \begin{table}[H]
 	\centering
 	\caption{ANQUERY-komento}
@@ -621,7 +622,7 @@ Selitä komennosta hyödynnettävä tieto
 		\hline
 		Komento & Tuloste \\
     		\hline
-		AT+CREG? & \textless n\textgreater , \textless stat\textgreater \[ , \textless lac\textgreater , \textless ci\textgreater \] \\
+		AT+CREG? & \textless n\textgreater , \textless stat\textgreater [ , \textless lac\textgreater , \textless ci\textgreater ] \\
 		\hline
 	\end{tabularx}
 	\label{table:atkomento_creg}
